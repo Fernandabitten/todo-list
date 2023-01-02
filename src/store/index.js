@@ -29,27 +29,27 @@ export default createStore({
   },
   actions: {
     getTodos({commit}) {
-      return axios.get('https://my-json-server.typicode.com/Fernandabitten/backend-todo-vue3/todos')
+      return axios.get('https://my-json-server.typicode.com/Fernandabitten/json-server/todos')
       .then((response) => {
         commit('storeTodos', response.data)
       })
     },
 
     addTodo({commit}, data){
-      return axios.post('https://my-json-server.typicode.com/Fernandabitten/backend-todo-vue3/todos', data).then((response) => {
+      return axios.post('https://my-json-server.typicode.com/Fernandabitten/json-server/todos', data).then((response) => {
       commit('storeTodo', response.data);
       })     
     },
 
     updateTodo({commit}, {id, data}){
-      return axios.put(`https://my-json-server.typicode.com/Fernandabitten/backend-todo-vue3/todos/${id}`, data)
+      return axios.put(`https://my-json-server.typicode.com/Fernandabitten/json-server/todos/${id}`, data)
         .then((response) => {
         commit('storeTodo', response.data);
       })
     },
 
     deleteTodo({commit},  id){
-      return axios.delete(`https://my-json-server.typicode.com/Fernandabitten/backend-todo-vue3/todos/${id}`)
+      return axios.delete(`https://my-json-server.typicode.com/Fernandabitten/json-server/todos/${id}`)
         .then(() => {
         commit('deleteTodo', id);
       })
